@@ -11,3 +11,9 @@ index 295821a..d9ada88 100644
 @@ -1 +1,2 @@
  Analysis of the first field season.
 +      41      41    1294 data/station-data.csv
+23d8ea8 Update analysis
+a1993af Add gitignore
+11d67de Update station files.
+dd6474d Add results directory.
+a22b29e docs(readme): note committing commands.txt before task 18 and force push for bonus 2
+b645f85 feat: quiz 01 starter files
