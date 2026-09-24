@@ -1,19 +1,82 @@
-On branch station-upgrade
-Untracked files:
-  (use "git add <file>..." to include in what will be committed)
-	commands.txt
 
-nothing added to commit but untracked files present (use "git add" to track)
-diff --git a/results/summary.md b/results/summary.md
-index 295821a..d9ada88 100644
---- a/results/summary.md
-+++ b/results/summary.md
-@@ -1 +1,2 @@
- Analysis of the first field season.
-+      41      41    1294 data/station-data.csv
-23d8ea8 Update analysis
-a1993af Add gitignore
-11d67de Update station files.
-dd6474d Add results directory.
-a22b29e docs(readme): note committing commands.txt before task 18 and force push for bonus 2
-b645f85 feat: quiz 01 starter files
+git checkout -b station-upgrade
+
+
+mkdir results
+
+
+touch results/summary.md
+echo "Analysis of the first field season." >> results/summary.md
+
+
+git add results
+git commit -m "Add results directory"
+
+
+mv data/sensor-readings.csv data/station-data.csv
+
+
+mkdir scripts/archive && cp scripts/*.py scripts/archive/
+
+
+rm docs/notes.md
+
+
+git add .
+git commit -m "Update station files"
+
+
+touch .gitignore
+echo "temp/" >> .gitignore
+echo "log?.txt" >> .gitignore
+
+cat .gitignore
+
+
+git add .gitignore && git commit -m "Add gitignore"
+
+
+touch log{1..4}.txt
+
+
+git status
+
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   commands.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+Explanation: The log files don't appear because log?.txt in .gitignore matches any single character after log, so Git ignores log1.txt through log4.txt.
+
+
+wc -l < data/station-data.csv >> results/summary.md
+
+
+git diff
+
+
+
+Explanation: Lines starting with + show text that was added to the file compared to the last commit.
+
+
+git add .
+git commit -m "Update analyss"
+
+
+git commit --amend -m "Update analysis"
+
+git checkout main
+git merge station-upgrade
+
+
+git log --oneline
+
+
+git add commands.txt
+git commit -m "Add command log"
+git push
